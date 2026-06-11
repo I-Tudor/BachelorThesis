@@ -1,0 +1,28 @@
+# PARC Roman Numeral Chord Analyzer - Python dependencies
+# Install with:  pip install -r requirements.txt
+
+# ── Core ML ──────────────────────────────────────────────────────────────────
+torch>=2.1.0
+
+# ── Audio I/O & feature extraction ───────────────────────────────────────────
+librosa>=0.10.0
+soundfile>=0.12.0
+sounddevice>=0.4.6
+# numpy is pulled in by librosa; pin for safety
+numpy>=1.24.0
+
+# Vamp plugin bindings - optional but strongly recommended.
+# Requires the Vamp plugin SDK and the nnls-chroma plugin to be installed.
+# Falls back to librosa chroma_cqt if unavailable.
+# pip install vamp
+# https://github.com/c4dm/vampy
+
+# ── UI ────────────────────────────────────────────────────────────────────────
+PyQt6>=6.6.0
+
+# ── PDF export ───────────────────────────────────────────────────────────────
+# Required only for "Export Lead Sheet PDF". App runs without it.
+reportlab>=4.0.0
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=7.0.0

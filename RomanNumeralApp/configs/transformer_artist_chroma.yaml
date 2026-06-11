@@ -1,0 +1,36 @@
+model: RNATransformer
+
+run_name: "rna-boundary-aware"
+
+num_epochs: 100
+
+augment: true
+label_smoothing: 0.1
+use_equiv_loss: true
+add_chord_change_head: true
+use_tonal_key_loss: true
+tonal_key_alpha: 0.15
+warmup_epochs: 10
+
+
+output_dir: experiments/transformer_artist_chroma_aug/
+
+data:
+  split_level: artist
+  use_semitone_spectrum: false
+
+dataloader:
+  num_workers: 0
+  batch_size: 256
+
+optimizer:
+  lr: 0.0005
+  weight_decay: 0.01
+
+model_kwargs:
+  dropout: 0.4
+  tome_r: 0
+  d_model: 128
+  num_layers: 4
+  nhead: 4
+  dim_feedforward: 512
