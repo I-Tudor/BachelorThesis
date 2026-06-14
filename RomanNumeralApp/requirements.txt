@@ -1,28 +1,42 @@
-# PARC Roman Numeral Chord Analyzer - Python dependencies
+# MAJOR TOM - Roman Numeral Chord Analyzer - Python dependencies
 # Install with:  pip install -r requirements.txt
 
-# ── Core ML ──────────────────────────────────────────────────────────────────
+# Core ML
 torch>=2.1.0
+numpy>=1.24.0
+scipy>=1.10.0
 
-# ── Audio I/O & feature extraction ───────────────────────────────────────────
+# Data handling
+h5py>=3.8.0            # HDF5 feature/label storage (segments/*.h5)
+pandas>=2.0.0          # metrics.csv logging
+PyYAML>=6.0            # config parsing (imported as `yaml`)
+tqdm>=4.65.0           # progress bars
+
+# Audio I/O & feature extraction
 librosa>=0.10.0
 soundfile>=0.12.0
 sounddevice>=0.4.6
-# numpy is pulled in by librosa; pin for safety
-numpy>=1.24.0
+scikit-image>=0.20.0   # view_as_windows for segment windowing (imported as `skimage`)
 
-# Vamp plugin bindings - optional but strongly recommended.
-# Requires the Vamp plugin SDK and the nnls-chroma plugin to be installed.
-# Falls back to librosa chroma_cqt if unavailable.
-# pip install vamp
-# https://github.com/c4dm/vampy
+# Music theory
+music21>=9.0.0         # note/interval helpers in source/utils.py
 
-# ── UI ────────────────────────────────────────────────────────────────────────
+# Training & evaluation
+wandb>=0.16.0          # experiment logging during training
+scikit-learn>=1.3.0    # evaluation metrics (imported as `sklearn`)
+
+# UI
 PyQt6>=6.6.0
 
-# ── PDF export ───────────────────────────────────────────────────────────────
+# PDF export
 # Required only for "Export Lead Sheet PDF". App runs without it.
 reportlab>=4.0.0
 
-# ── Testing ───────────────────────────────────────────────────────────────────
+# Testing
 pytest>=7.0.0
+
+#  Vamp plugin bindings (optional but strongly recommended)
+# Required to extract NNLS-Chroma features yourself. The app falls back to
+# librosa's chroma_cqt if unavailable. Needs the Vamp SDK + nnls-chroma plugin
+# installed separately (see README).
+vamp>=1.1.0
