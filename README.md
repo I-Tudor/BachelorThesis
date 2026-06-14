@@ -64,6 +64,9 @@ Use Python 3.10+ and a virtual environment.
 
 **1. Clone the repository**
 
+> **Skip this step if you received the project as an archive** — just extract it
+> and `cd` into the extracted `RomanNumeralApp` folder instead.
+
 ```bash
 git clone https://github.com/I-Tudor/BachelorThesis
 cd RomanNumeralApp
@@ -328,7 +331,7 @@ The desktop app loads a trained checkpoint and analyzes any audio file you open.
 
 ```bash
 PYTHONPATH=. python app/main.py \
-    --checkpoint experiments/transformer_artist_chroma_aug/best_model.ckpt \
+    --checkpoint experiments/my_run/best_model.ckpt \
     --label-domains dataset/metadata/label_domains.json \
     --label-sizes   dataset/metadata/label_sizes.json
 ```
@@ -377,7 +380,7 @@ PYTHONPATH=. python scripts/train.py --yaml configs/transformer_artist_chroma.ya
 
 # 4. Run the app
 PYTHONPATH=. python app/main.py \
-    --checkpoint experiments/transformer_artist_chroma_aug/best_model.ckpt \
+    --checkpoint experiments/my_run/best_model.ckpt \
     --label-domains dataset/metadata/label_domains.json \
     --label-sizes   dataset/metadata/label_sizes.json
 ```
