@@ -69,7 +69,7 @@ Use Python 3.10+ and a virtual environment.
 
 ```bash
 git clone https://github.com/I-Tudor/BachelorThesis
-cd RomanNumeralApp
+cd BachelorThesis/RomanNumeralApp
 ```
 
 **2. Create and activate a virtual environment**
