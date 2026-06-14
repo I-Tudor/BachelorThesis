@@ -65,7 +65,7 @@ Use Python 3.10+ and a virtual environment.
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/I-Tudor/BachelorThesis RomanNumeralApp
+git clone https://github.com/I-Tudor/BachelorThesis
 cd RomanNumeralApp
 ```
 
