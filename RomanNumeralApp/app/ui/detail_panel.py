@@ -1,11 +1,6 @@
 """
 app/ui/detail_panel.py - Chord detail sidebar and settings tab.
 
-Changes from v1
-- _small_label defined before use (was called in __init__ before definition)
-- PDF export button added
-- Settings panel includes "Bars per row" for PDF export
-- Cleaner layout with proper spacing
 """
 from __future__ import annotations
 
@@ -213,14 +208,6 @@ class SettingsPanel(QWidget):
             f" border-radius:4px; padding:3px 8px;")
         lay.addWidget(self.combo_device)
 
-        # Feature type
-        lay.addSpacing(4)
-        lay.addWidget(_small_label("FEATURE TYPE"))
-        self.combo_feat = QComboBox()
-        self.combo_feat.addItems(["Chroma + Bass chroma", "Semitone spectrum (84-bin)"])
-        self.combo_feat.setStyleSheet(self.combo_device.styleSheet())
-        lay.addWidget(self.combo_feat)
-
         # PDF: bars per row
         lay.addSpacing(4)
         lay.addWidget(_small_label("PDF BARS PER ROW"))
@@ -270,7 +257,6 @@ class SettingsPanel(QWidget):
     def _emit(self):
         self.settings_changed.emit({
             "device":               self.combo_device.currentText(),
-            "use_semitone_spectrum":self.combo_feat.currentIndex() == 1,
             "pdf_bars_per_row":     self.spin_bars.value(),
         })
 
